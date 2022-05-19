@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
 @Component({
@@ -10,6 +10,7 @@ import { debounceTime, Subject } from 'rxjs';
 export class SearchBarComponent implements OnInit {
   @Output() terminoEvent = new EventEmitter<string>();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter<string>();
+  @Input() placeholder: string | any;
   termino : string = ''
   debouncer : Subject<string> = new Subject()
   constructor() { }
@@ -18,6 +19,8 @@ export class SearchBarComponent implements OnInit {
     this.debouncer
     .pipe(debounceTime(300))
     .subscribe(valor => this.onDebounce.emit( valor ))
+    
+    
   }
 
   onSubmit(){

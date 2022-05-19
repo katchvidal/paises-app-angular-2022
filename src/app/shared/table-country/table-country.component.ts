@@ -16,6 +16,7 @@ import { Country } from 'src/app/core/interfaces/paises/pais.interface';
 export class TableCountryComponent implements OnInit {
 
   @Input() paises : Country[] = []
+  
   constructor() { }
 
   ngOnInit(): void {

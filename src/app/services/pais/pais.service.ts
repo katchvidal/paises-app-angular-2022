@@ -10,7 +10,7 @@ import { Country } from 'src/app/core/interfaces/paises/pais.interface';
 export class PaisService {
 
   private URI = 'https://restcountries.com/v3.1/name'
-  private URLCODE = 'https://restcountries.com/v3.1/alpha?codes=KG'
+  private URLCODE = 'https://restcountries.com/v3.1/alpha?codes'
   private URLCAPITAL = 'https://restcountries.com/v3.1/capital'
 
   constructor( private http: HttpClient ) { }
@@ -21,8 +21,9 @@ export class PaisService {
     return this.http.get<Country[]>(url)
   }
 
-  getByCode(){
-    const url = `${ this.URLCODE }`
+  getByCode( code : string ){
+    const url = `${ this.URLCODE }=${ code }`
+    return this.http.get<Country>( url )
   }
 
   getByCapitalCity( pais : string ){
