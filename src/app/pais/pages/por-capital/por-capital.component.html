@@ -1,0 +1,19 @@
+<div>
+    <h2> Busquedas De Pais Por Capital  </h2>
+    <hr />
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-search-bar (terminoEvent)="onSubmit( $event )"></app-search-bar>
+    </div>
+</div>
+<hr />
+<div class="alert alert-danger" *ngIf="error"> <span> No se Encontro El Pais Seleccionado: <strong> {{ termino }}
+        </strong> </span> </div>
+<div class="row">
+    <div class="col">
+
+        <app-table-country [paises]="paises"></app-table-country>
+    </div>
+</div>

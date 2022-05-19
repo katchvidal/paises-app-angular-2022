@@ -1,0 +1,15 @@
+<h2> Busqueda Por Pais </h2>
+<hr />
+<div class="row">
+    <div class="col">
+        <app-search-bar (terminoEvent)="onSubmit( $event )" (onDebounce)="pressKey( $event )" ></app-search-bar>
+    </div>
+</div>
+<hr />
+<div class="alert alert-danger" *ngIf="error" > <span> No se Encontro El Pais Seleccionado:  <strong> {{ termino }} </strong> </span> </div>
+
+<div class="row" *ngIf="!error" >
+    <div class="col" >
+        <app-table-country [paises]="paises" ></app-table-country>
+    </div>
+</div>
