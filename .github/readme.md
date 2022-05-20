@@ -44,3 +44,9 @@
         1.  .github
             1.1 workflows
 ```
+
+##  Some Variable Screts
+```
+    ACTIONS_STEP_DEBUG: true
+    
+```
