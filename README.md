@@ -132,3 +132,10 @@
 ```
     1.  Necesitamos tener un debounce 
 ```
+
+##  Live Code
+```
+    You can visit live code in the next page -> https://katchvidal.github.io/paises-app-angular-2022/
+    1.  Angular JSON -> Changes to docs replace dist/"name_app"
+    2.  Push commit to main branch
+```
