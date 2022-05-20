@@ -12,6 +12,7 @@ export class PaisService {
   private URI = 'https://restcountries.com/v3.1/name'
   private URLCODE = 'https://restcountries.com/v3.1/alpha?codes'
   private URLCAPITAL = 'https://restcountries.com/v3.1/capital'
+  private URLREGION = 'https://restcountries.com/v3.1/region'
 
   constructor( private http: HttpClient ) { }
 
@@ -28,6 +29,11 @@ export class PaisService {
 
   getByCapitalCity( pais : string ){
     const url = `${this.URLCAPITAL}/${ pais }`
+    return this.http.get<Country[]>( url )
+  }
+
+  getByRegion( region : string ){
+    const url = `${ this.URLREGION }/${ region }`
     return this.http.get<Country[]>( url )
   }
 }

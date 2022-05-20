@@ -127,3 +127,8 @@
     -> https://restcountries.com/
     fue la API USADA DONDE TODO EL PROYECTO
 ```
+
+##  AutoComplete Suggestion with Debounce
+```
+    1.  Necesitamos tener un debounce 
+```

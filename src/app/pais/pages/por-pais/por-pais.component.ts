@@ -1,16 +1,29 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Country } from 'src/app/core/interfaces/paises/pais.interface';
 import { PaisService } from 'src/app/services/pais/pais.service';
 
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
-  styles: []
+  styles: [
+    `
+      li{
+        cursor: pointer;
+      }
+
+      a{
+        text-decoration: none;
+        cursor: pointer;
+      }
+    `
+  ]
 })
 export class PorPaisComponent implements OnInit {
 
   termino : string = ''
-  paises: any[] = []
+  paises: Country[] = []
   error = false;
+  suggestionCountry : Country[] = []
   constructor( private paisService : PaisService) { }
 
   ngOnInit(): void {
@@ -35,5 +48,9 @@ export class PorPaisComponent implements OnInit {
   pressKey( termino : string ){
     this.error = false
     
+    this.paisService.getByCountry( termino ).subscribe(
+      paises => this.suggestionCountry = paises.splice(0,5),
+      ( err ) => this.suggestionCountry = []
+    )
   }
 }
